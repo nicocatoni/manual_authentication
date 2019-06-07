@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hamburgers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hamburgers.each do |hamburger| %>
+      <tr>
+        <td><%= hamburger.name %></td>
+        <td><%= hamburger.description %></td>
+        <td><%= hamburger.price %></td>
+        <td><%= link_to 'Show', hamburger %></td>
+        <td><%= link_to 'Edit', edit_hamburger_path(hamburger) %></td>
+        <td><%= link_to 'Destroy', hamburger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hamburger', new_hamburger_path %>
